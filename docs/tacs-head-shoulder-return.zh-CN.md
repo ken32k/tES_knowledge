@@ -14,7 +14,7 @@
 4. 为什么一些 DLPFC 研究采用全头部布局，而不是肩部回流？
 5. 肩部回流是否会使阻抗很高？既往文献是否提供具体数值？
 
-讨论期间，PubMed、PMC、Europe PMC 等文献站点的请求被环境网络代理拒绝，未能完成原文核验。因此，本文不是系统综述，也不提供已经核对过的“论文—肩部回流阻抗数值”对应表。
+初次讨论时文献站点访问受限；补充引用时，已能读取部分 PubMed 摘要及 Europe PMC 全文 XML。本文仍非系统综述。新增的[相关文献与证据说明](tacs-head-shoulder-references.zh-CN.md)逐篇标注核验层级，并确认一篇 Pz—右三角肌方案规定接触阻抗低于 5 kΩ；这不是受试者实测阻抗的统计结果。
 
 | 内容 | 当前证据状态 |
 | --- | --- |
@@ -23,7 +23,7 @@
 | “很多楔前叶研究使用 Pz—三角肌” | 用户观察；未逐篇核查或统计使用频率 |
 | “DLPFC 通常较少采用肩部回流” | 用户观察；未完成不同研究领域、tACS 与 tDCS 的分类统计 |
 | Pz—三角肌比其他布局更聚焦、更有效或更安全 | 本次未获得足以支持这种普遍结论的直接比较证据 |
-| 肩部回流的实际阻抗分布与具体文献数值 | 尚未核实 |
+| 肩部回流的具体文献数值 | 已核实一篇方案的低于 5 kΩ 阈值；实测分布与布局间直接比较尚未核实 |
 
 应避免把“被多篇研究沿用”“模型显示目标区有电场”“实验出现行为效应”和“布局优于其他方案”当作同一层级的证据。
 
@@ -95,6 +95,8 @@ Pz 是容易复现的后正中头皮定位点，可作为接近楔前叶区域�
 
 ### 3.4 怎样判断论文是否真正支持这组布局？
 
+直接文献入口：Benussi 等（2021）的摘要明确采用 Pz gamma tACS，Altomare 等（2023）的全文进一步明确 Pz—右三角肌方案。见[临床研究 R01](tacs-head-shoulder-references.zh-CN.md#r01)和[方案 R02](tacs-head-shoulder-references.zh-CN.md#r02)。前者不能仅凭摘要确认肩部位置，后者是方案而非已完成试验结果；两者均不构成回流布局优劣的直接比较。
+
 | 论文提供的内容 | 能支持什么 | 仍不能单独证明什么 |
 | --- | --- | --- |
 | 引用既往使用该布局的研究 | 范式来源与可比性 | 布局最优 |
@@ -144,6 +146,8 @@ DLPFC 同样可以采用肩部回流，没有“楔前叶应该用头部—肩�
 
 可调查的模型资源包括 IT’IS Virtual Population 中的 Duke、Ella 等人体模型。应另行确认许可、模型分辨率、可用组织和软件兼容性。模型资源存在，并不等于已有可直接运行的肩部 tACS 流程。
 
+更直接的公开资源线索是 [Ernie Extended（Van Hoornweder 等，2024；R03）](tacs-head-shoulder-references.zh-CN.md#r03)：该模型含 13 类组织，延伸至第五胸椎水平，作者比较了扩展与非扩展模型的头外电极仿真。另见 [Im 等（2012；R04）](tacs-head-shoulder-references.zh-CN.md#r04)，其上半身模型明确比较左右三角肌等回流位置。两者都不等于本仓库已完成模型下载或仿真验证。
+
 ### 5.2 标准人体模型的建议流程
 
 1. 准备连续的头、颈、肩及足够范围的躯干组织。通过扩大计算域、检查结果稳定性，判断身体截断是否足够远。
@@ -183,6 +187,8 @@ I₂(t) = −I₁(t)
 - 拼接区域、网格分辨率及模板选择不会主导目标脑区的结论。
 
 SimNIBS 等工具可用于头部分割和电场计算，但常规头部流程不会自动生成肩部。使用自定义身体网格前，需要核对具体版本支持的网格格式、组织标签、电极接口及求解流程。
+
+这里指常规个体头部流程的限制，不意味着不存在可用的扩展模板；Ernie Extended 已提供明确文献路线。ROAST 的方法学出处见[文献 R07](tacs-head-shoulder-references.zh-CN.md#r07)，不能仅因软件支持头部建模就假设它支持实际肩部位置。
 
 ### 5.4 能否在颈底直接设置回流？
 
@@ -238,7 +244,9 @@ V_peak ≈ I_peak × |Z_total(f)|
 
 ## 7. 文献是否提供肩部回流的具体阻抗数值？
 
-本次尚未完成原文核验，不能给出可引用的具体数值，也不能据此声称“没有文献报告”。前述阻抗解释属于原理分析，不是已经核实的 Pz—三角肌实验数据。
+补充文献后，已找到可引用的具体方案阈值：**Altomare 等（2023）规定 Pz—右三角肌布局的接触阻抗低于 5 kΩ**。全文 **tACS parameters** 段写明“reduce contact impedance (< 5 kΩ for all sessions)”，并描述盐水海绵电极、导电凝胶及 Soterix Medical mini-CT。详见[文献 R02](tacs-head-shoulder-references.zh-CN.md#r02)。
+
+需要保留三个限制：这是研究方案中的控制要求，不是实际队列阻抗均值；原文该段未充分定义测量频率和单接触点／回路读数，不能自行称为“肩部单电极阻抗”；该方案没有证明肩部回流比头部回流阻抗更高或更低。因此，实测分布及布局间直接比较仍待核查。
 
 提取文献时需要区分：
 
@@ -279,14 +287,14 @@ V_peak ≈ I_peak × |Z_total(f)|
 
 ## 9. 文献线索与核验任务
 
-以下为讨论中提到的溯源线索。本次未逐篇核对原文、实验参数和具体建模方法，不能将其视为已核实的 Pz—三角肌布局或阻抗数值证据。
+以下保留初次讨论的文献入口。除 Benussi 等（2021）现已核对 PubMed 书目与完整摘要外，其余三项本轮未重新核验。新增六篇相关引用及更新后的证据解释见[补充文献笔记](tacs-head-shoulder-references.zh-CN.md)。
 
 | 文献线索 | 在本文中的用途 | 链接 |
 | --- | --- | --- |
 | Asamoah、Khatoun 与 Mc Laughlin，2019，*tACS motor system effects can be caused by transcutaneous stimulation of peripheral nerves*，Nature Communications | 周围神经机制的线索，不代表所有 tACS 效应均为外周来源 | [DOI](https://doi.org/10.1038/s41467-018-08183-w) |
 | Antal 等，2017，低强度经颅电刺激安全、伦理与应用指南，Clinical Neurophysiology | 通用方法与安全框架，不能替代特定布局的验证 | [DOI](https://doi.org/10.1016/j.clinph.2017.06.001) |
 | Huang 等，2017，*Measurements and models of electric fields in the in vivo human brain during transcranial electric stimulation*，eLife | 脑内电场测量与建模的线索，不直接证明肩部回流优势 | [DOI](https://doi.org/10.7554/eLife.18834) |
-| Benussi 等，2021，*Exposure to gamma tACS in Alzheimer's disease: A randomized, double-blind, sham-controlled, crossover, pilot study*，Brain Stimulation | 楔前叶相关 gamma tACS 研究路线的溯源起点；具体布局、理由、模型与阻抗报告待查 | [PubMed 检索入口](https://pubmed.ncbi.nlm.nih.gov/?term=Exposure+to+gamma+tACS+in+Alzheimer%27s+disease) |
+| Benussi 等，2021，*Exposure to gamma tACS in Alzheimer's disease: A randomized, double-blind, sham-controlled, crossover, pilot study*，Brain Stimulation | 已核对摘要：Pz、60 分钟、20 名 MCI-AD 参与者；具体回流、模型与阻抗仍需全文核验 | [DOI](https://doi.org/10.1016/j.brs.2021.03.007)；[证据说明 R01](tacs-head-shoulder-references.zh-CN.md#r01) |
 
 后续核验清单：
 
@@ -296,6 +304,8 @@ V_peak ≈ I_peak × |Z_total(f)|
 - [ ] 提取目标楔前叶与非目标区的电场指标，检查是否有布局直接比较。
 - [ ] 核对 DLPFC 相关比较研究，避免混淆 tACS 与 tDCS。
 - [ ] 按第 7.1 节提取阻抗信息，分别记录阈值、实测值和设备规格。
+- [x] 核实至少一篇 Pz—右三角肌方案的具体阻抗阈值：Altomare 等（2023），低于 5 kΩ；并标注它不属于实测均值。
+- [x] 核实扩展头颈肩模型的直接文献：Ernie Extended（2024）。
 - [ ] 核对脑活动证据的空间定位和刺激伪迹处理，避免将头皮 Pz 信号直接等同于楔前叶活动。
 
-网络状态记录：讨论时已将 `pubmed.ncbi.nlm.nih.gov`、`pmc.ncbi.nlm.nih.gov`、`www.ebi.ac.uk` 保存到环境网络配置草稿。草稿保存不等于运行时访问已开放，也不等于已发布或已完成文献核查。
+网络状态记录：初次讨论时已将 `pubmed.ncbi.nlm.nih.gov`、`pmc.ncbi.nlm.nih.gov`、`www.ebi.ac.uk` 保存到环境网络配置草稿。补充引用时，部分 PubMed 检索摘要和 Europe PMC 全文 XML 已实际读取成功；部分单篇网页仍出现浏览器验证。该访问结果不构成配置发布或新任务恢复的证明。
