@@ -2,7 +2,9 @@
 
 整理日期：2026-10-24（Asia/Shanghai）。范围：以头皮 tACS / tDCS 为主，讨论电极组件及布局；不把 EEG 记录电极、TENS 或其他外周刺激的规格直接当作头皮 tES 参数。
 
-本轮核对了九篇相关论文的书目及摘要，其中两篇核对全文。多数直接比较证据来自 tDCS；用于 tACS 时，应区分可借鉴的几何原理和仍需验证的频率响应、耐受性及神经效应。本文不是系统综述，也没有实际制造、安装或测试电极。
+图片补充：2026-10-25。以下三张文献原图保留原样，未裁切或改绘；Villamar 实物图采用 CC BY-NC-ND 3.0，Ernie Extended 两张模型图采用 CC BY 4.0。图片许可与本文文字分开，详见[图像来源与许可](assets/electrode-shapes/SOURCES.md)。
+
+正文与配图共引用十篇相关论文，其中三篇核对全文，其余核对书目与完整摘要。多数直接比较证据来自 tDCS；用于 tACS 时，应区分可借鉴的几何原理和仍需验证的频率响应、耐受性及神经效应。本文不是系统综述，也没有实际制造、安装或测试电极。
 
 ## 1. 首先区分：形状、面积、材料和布局
 
@@ -37,6 +39,10 @@
 | 定制／分段电极 | 可按解剖、目标或优化结果设计外形与电流分配 | 理想网格中的优势需要实际制造、接触和硬件验证；分段是否独立驱动必须明确 |
 
 耳夹等首先是一种固定和定位方式，可能涉及其他解剖靶点或技术，不宜与头皮电极的二维形状直接排名。
+
+![头戴式 4×1 HD-tDCS 实物配置，五个带凝胶腔的电极组件通过导线连接](assets/electrode-shapes/villamar-2013-fig07-hd-setup.jpg)
+
+**图 1｜4×1 HD 电极组件与固定方式的实物。**转载自 Villamar 等（2013，[E07](#e07)）原文 Figure 7，© 2013 Journal of Visualized Experiments，CC BY-NC-ND 3.0，原图未修改。照片展示的是五个带外壳的组件组成的配置，不是一张连续圆环片；仅凭外壳照片也不能判定内部导体或皮肤接触足迹的形状。原图文件与[完整来源记录](assets/electrode-shapes/SOURCES.md#villamar-fig07)已保存于仓库。
 
 ## 3. “环形”至少包含三种不同情况
 
@@ -198,7 +204,15 @@ Saturnino 等（2015，[E01](#e01)）在模型中发现，对所研究矩形垫�
 
 仿真中应表示实际接触层和皮肤足迹，而不只是绘制金属外观。矩形记录旋转角和圆角，圆环记录内外径，小电极记录 holder 及胶层；必要时分析有限导体电导率和接头。若省略这些因素，应说明近似及其影响。
 
+![Ernie Extended 的组织模型、截断与扩展模型的电极位置比较，以及扩展候选电极位置](assets/electrode-shapes/van-hoornweder-2024-fig01-extended-model.jpg)
+
+**图 2｜电极几何必须放进正确的解剖与计算域。**转载自 Van Hoornweder 等（2024，[E10](#e10)）原文 Figure 1，© 2024 The Authors，CC BY 4.0，原图未修改。A 为组织模型，B 为头外电极在截断与扩展模型中的表示，C 为优化和候选位置。重点是电极位置、组织与整个回路共同决定结果；它不是方形、圆盘、环形的独立比较。C 面板对避让区的文字与论文方法／结果存在不一致，不能仅按该面板重建优化约束，详见[论文精读](ernie-extended-paper-analysis.zh-CN.md)。见[来源记录](assets/electrode-shapes/SOURCES.md#ernie-fig01)。
+
 建议输出目标 ROI 的电场幅值、方向和覆盖，非目标区暴露，头皮局部电流密度及其稳健统计量，并检查边缘网格收敛。界面电压或阻抗只有在模型包含相应界面时才有对应意义；不要将纯组织模型的阻抗等同于实际设备读数。
+
+![同一扩展模型中三种优化目标的电场分布，上排采用扩展候选电极位置，下排采用标准 10–20 位置](assets/electrode-shapes/van-hoornweder-2024-fig03-optimization.jpg)
+
+**图 3｜选型评价需要结合布局、目标和约束。**转载自 Van Hoornweder 等（2024，[E10](#e10)）原文 Figure 3，© 2024 The Authors，CC BY 4.0，原图未修改。从左至右分别对应聚焦并避让、聚焦、最大化强度；上、下排比较扩展与标准候选位置，使用的都是扩展模型。第三列色标上限与前两列不同，不能仅凭颜色深浅跨列比较。该图说明整体设计的强度与聚焦性权衡，不证明某种电极片形状天然更优。见[来源记录](assets/electrode-shapes/SOURCES.md#ernie-fig03)。
 
 ## 9. 最少应报告的电极信息
 
@@ -214,7 +228,7 @@ Saturnino 等（2015，[E01](#e01)）在模型中发现，对所研究矩形垫�
 
 ## 10. 已核验的文献与适用边界
 
-以下核验日期均为 2026-10-24。两篇全文分别来自 PMC HTML（E06）与 Europe PMC XML（E07）；其余七篇核对 PubMed 书目与完整摘要。没有将仅被其他论文引用的条目算作全文核验。
+E01–E09 的核验日期为 2026-10-24。两篇全文分别来自 PMC HTML（E06）与 Europe PMC XML（E07）；其余七篇核对 PubMed 书目与完整摘要。配图补充的 E10 全文与许可于 2026-10-25 再次核对，图片在该日保存。没有将仅被其他论文引用的条目算作全文核验。
 
 <a id="e01"></a>
 
@@ -287,6 +301,14 @@ Kuo HI, Bikson M, Datta A, et al. **Comparing cortical plasticity induced by con
 Stoupis D, Assecondi S. **Anatomy-informed recommendations for electrode montage and shape in electrical stimulation methods: a tDCS case study.** *Journal of Neural Engineering*. 2026;23(2). [DOI: 10.1088/1741-2552/ae4a4e](https://doi.org/10.1088/1741-2552/ae4a4e)；[PMID: 41740190](https://pubmed.ncbi.nlm.nih.gov/41740190/)。
 
 核验：书目与完整摘要。使用 HCP-Aging 的 590 名参与者影像、SimNIBS 4.1，讨论布局和解剖对网络电场的影响；摘要强调即使标准化方案，个体剂量和分布仍有明显差异。本文未核验其全文中的具体形状比较，不能仅凭标题将某种形状列为其推荐的最优方案。
+
+<a id="e10"></a>
+
+### E10. 电极几何与布局应放在完整计算域中评价
+
+Van Hoornweder S, Cappozzo V, De Herde L, et al. **Head and shoulders—The impact of an extended head model on the simulation and optimization of transcranial electric stimulation.** *Imaging Neuroscience*. 2024;2:imag-2-00379. [DOI: 10.1162/imag_a_00379](https://doi.org/10.1162/imag_a_00379)；[PMID: 40800500](https://pubmed.ncbi.nlm.nih.gov/40800500/)；[PMC 全文](https://pmc.ncbi.nlm.nih.gov/articles/PMC12315774/)。
+
+核验：全文及图片许可。本文图 2、图 3 分别转载其原文 Figure 1、3。它研究模型截断和候选电极布局，不能作为等面积形状比较的证据；具体结果与原文内部表述差异见[专题精读](ernie-extended-paper-analysis.zh-CN.md)。
 
 ## 11. 后续值得继续查证的问题
 

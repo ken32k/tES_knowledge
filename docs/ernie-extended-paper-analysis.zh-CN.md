@@ -2,6 +2,8 @@
 
 整理日期：2026-10-24（Asia/Shanghai）。
 
+图片及图文一致性核对补充：2026-10-25。
+
 Van Hoornweder S, Cappozzo V, De Herde L, et al. **Head and shoulders—The impact of an extended head model on the simulation and optimization of transcranial electric stimulation.** *Imaging Neuroscience*. 2024;2:imag-2-00379. DOI：[10.1162/imag_a_00379](https://doi.org/10.1162/imag_a_00379)。
 
 - [用户提供的出版社页面](https://direct.mit.edu/imag/article/doi/10.1162/imag_a_00379/125235/Head-and-shoulders-The-impact-of-an-extended-head)
@@ -27,6 +29,10 @@ Ernie Extended 来自**一位参与者**的影像，包括高分辨率 T1w、T2w
 - 使用 FreeSurfer 表面改进脑组织表示，最终生成四面体网格。
 
 **对“没有肩部 MRI 怎么办”的意义：**可以考虑使用已有扩展模板，而不要求每位参与者重新采集肩部影像。但本文的模板本身确实由覆盖头肩的影像建立，不是仅凭头部 MRI 自动推算肩部，也没有验证“个体头部拼接模板身体”的通用算法。
+
+![原文 Figure 1：扩展头颈肩模型、头外电极的实际及近似位置、候选位置与优化设计](assets/electrode-shapes/van-hoornweder-2024-fig01-extended-model.jpg)
+
+原文 **Figure 1**，© 2024 The Authors，CC BY 4.0，未修改。C 面板的避让区表述与正文有差异，见第 6 节；[图片来源及许可](assets/electrode-shapes/SOURCES.md#ernie-fig01)。
 
 ## 3. 必须分开的两组实验
 
@@ -92,11 +98,15 @@ Ernie Extended 来自**一位参与者**的影像，包括高分辨率 T1w、T2w
 
 数值来自 Results 中 **Effect of extended head models and electrode positions on tES optimization**，对应图 3。原文将体积指标称为灰质中超过电场“70th percentile”的体积；此处保留其报告口径，不擅自改写成“超过统一的固定 V/m 阈值”或“超过峰值的 70%”。若要自行计算和跨研究比较，应先核查代码中的实际定义。
 
+![原文 Figure 3：上排为扩展候选电极位置、下排为标准 10–20 位置，分别比较三种优化目标的电场和区域数值](assets/electrode-shapes/van-hoornweder-2024-fig03-optimization.jpg)
+
+原文 **Figure 3**，© 2024 The Authors，CC BY 4.0，未修改。第三列色标上限不同于前两列，跨列应比较具体数值；[图片来源及许可](assets/electrode-shapes/SOURCES.md#ernie-fig03)。
+
 ### 5.2 如何解读这些数值？
 
 **相同目标剂量下，候选电极位置影响非目标暴露。**优化 1 和 2 的目标区都达到 0.200 V/m；加入颈肩候选位置后，峰值和原文体积指标更低。这比只说“扩展模型让电场变强”更准确。
 
-**避开某些区域需要付出代价。**扩展布局的优化 1 加入脊髓和右枕叶避让后，体积指标为 9.64 cm³，大于未设置避让的优化 2 的 5.66 cm³。优化 1 的左小脑仍达到 0.177 V/m，接近右侧目标 0.200 V/m，因为左小脑不在避让区。限制两个非目标区，不等于所有非目标区都获得低剂量。
+**避开某些区域需要付出代价。**扩展布局的优化 1 加入避让后，体积指标为 9.64 cm³，大于未设置避让的优化 2 的 5.66 cm³。优化 1 的左小脑仍达到 0.177 V/m，接近右侧目标 0.200 V/m。论文正文称左小脑不在避让区，但 Figure 1C 的表格将左小脑列入避让区，二者不一致；不能据此确认代码实际使用了哪组约束。无论如何，该结果不能解释成所有非目标区都获得低剂量。
 
 **最大化目标电场可能增加其他区域的暴露。**优化 3 的目标电场达到 1.590 V/m，但论文报告聚焦性较差，右枕叶获得最高剂量。因此“目标最强”与“目标最选择性”是不同目标。
 
@@ -105,6 +115,8 @@ Ernie Extended 来自**一位参与者**的影像，包括高分辨率 T1w、T2w
 ## 6. 需要特别审慎的结果表述
 
 - 文中优化 1 的避让区电场被形容为较低，但正文括号写作“>0.037 V/m”。不应默默将其改为小于号，也不应据此宣称避让区低于 0.037 V/m；本文不将该表达作为阈值结论。
+- 2026-10-25 补图时核对 Figure 3：扩展布局优化 1 的脊髓与右枕叶表格值分别为 0.010 和 0.037 V/m。它们可作为图中报告值引用，但不能将正文比较符号擅自更正。
+- Figure 1C 将左小脑列入避让区，而 Methods 描述脊髓和右枕叶，Results 又明确称左小脑不是避让区。复现时需核查代码，不能只依赖图中表格或正文中的一处表述。
 - 这是单个模型的计算比较，“差异明显”不能解释为跨参与者的统计显著性或临床效应。
 - 强度与聚焦性不仅取决于模型，还取决于候选电极、约束、目标和避让区；比较时需逐项保持一致。
 - 论文优化的是电场幅值。相似幅值下，法向和切向成分仍可能不同；优化特定方向还依赖神经元响应假设和皮层几何精度。
