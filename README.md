@@ -8,5 +8,6 @@
 - [相关文献与证据说明：Pz—三角肌阻抗阈值、Ernie Extended 及头外回流研究](docs/tacs-head-shoulder-references.zh-CN.md)
 - [Ernie Extended 论文精读：模型截断误差、多电极优化与结论边界](docs/ernie-extended-paper-analysis.zh-CN.md)
 - [tES 电极片的形状：方形、圆盘、环形、杯状与 HD 布局的特点及选择依据（含文献原图）](docs/tes-electrode-shapes.zh-CN.md)
+- [HD 电极布局的应用现状与前景：4×1、ring、个体化多通道及临床证据](docs/hd-electrode-montages-status-and-prospects.zh-CN.md)
 
 当前内容为讨论整理，部分文献已核对全文或摘要，尚未完成系统综述；具体核验层级和证据边界见各篇笔记。
