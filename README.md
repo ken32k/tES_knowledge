@@ -11,3 +11,7 @@
 - [HD 电极布局的应用现状与前景：4×1、ring、个体化多通道及临床证据](docs/hd-electrode-montages-status-and-prospects.zh-CN.md)
 
 当前内容为讨论整理，部分文献已核对全文或摘要，尚未完成系统综述；具体核验层级和证据边界见各篇笔记。
+
+## 研究专题
+
+- [AD 小鼠 tACS 实验调研](projects/ad-mouse-tacs/README.md)：模型、评估指标、行为学、成像／细胞分子、电极与设备；已建分析框架和提取表，原始文献在线核验待网络恢复。
